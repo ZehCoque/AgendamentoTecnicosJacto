@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    interface IAppointment
+    public interface IAppointment
     {
         Task CreateAsync(Appointment newAppointment);
         Appointment GetById(int appointmentId);

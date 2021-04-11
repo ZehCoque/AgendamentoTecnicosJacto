@@ -1,0 +1,12 @@
+C:\Users\Ze\Desktop\App\AgendamentoApp\Persistence\bin\Debug\netcoreapp3.1\Entity.dll
+C:\Users\Ze\Desktop\App\AgendamentoApp\Persistence\obj\Debug\netcoreapp3.1\Persistence.csprojAssemblyReference.cache
+C:\Users\Ze\Desktop\App\AgendamentoApp\Persistence\obj\Debug\netcoreapp3.1\Persistence.AssemblyInfoInputs.cache
+C:\Users\Ze\Desktop\App\AgendamentoApp\Persistence\obj\Debug\netcoreapp3.1\Persistence.AssemblyInfo.cs
+C:\Users\Ze\Desktop\App\AgendamentoApp\Persistence\bin\Debug\netcoreapp3.1\Persistence.deps.json
+C:\Users\Ze\Desktop\App\AgendamentoApp\Persistence\bin\Debug\netcoreapp3.1\Persistence.dll
+C:\Users\Ze\Desktop\App\AgendamentoApp\Persistence\bin\Debug\netcoreapp3.1\Persistence.pdb
+C:\Users\Ze\Desktop\App\AgendamentoApp\Persistence\bin\Debug\netcoreapp3.1\Entity.pdb
+C:\Users\Ze\Desktop\App\AgendamentoApp\Persistence\obj\Debug\netcoreapp3.1\Persistence.csproj.CoreCompileInputs.cache
+C:\Users\Ze\Desktop\App\AgendamentoApp\Persistence\obj\Debug\netcoreapp3.1\Persistence.csproj.CopyComplete
+C:\Users\Ze\Desktop\App\AgendamentoApp\Persistence\obj\Debug\netcoreapp3.1\Persistence.dll
+C:\Users\Ze\Desktop\App\AgendamentoApp\Persistence\obj\Debug\netcoreapp3.1\Persistence.pdb

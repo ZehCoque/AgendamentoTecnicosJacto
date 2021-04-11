@@ -1,0 +1,8 @@
+C:\Users\Ze\Desktop\App\AgendamentoApp\Entity\bin\Debug\netcoreapp3.1\Entity.deps.json
+C:\Users\Ze\Desktop\App\AgendamentoApp\Entity\bin\Debug\netcoreapp3.1\Entity.dll
+C:\Users\Ze\Desktop\App\AgendamentoApp\Entity\bin\Debug\netcoreapp3.1\Entity.pdb
+C:\Users\Ze\Desktop\App\AgendamentoApp\Entity\obj\Debug\netcoreapp3.1\Entity.AssemblyInfoInputs.cache
+C:\Users\Ze\Desktop\App\AgendamentoApp\Entity\obj\Debug\netcoreapp3.1\Entity.AssemblyInfo.cs
+C:\Users\Ze\Desktop\App\AgendamentoApp\Entity\obj\Debug\netcoreapp3.1\Entity.csproj.CoreCompileInputs.cache
+C:\Users\Ze\Desktop\App\AgendamentoApp\Entity\obj\Debug\netcoreapp3.1\Entity.dll
+C:\Users\Ze\Desktop\App\AgendamentoApp\Entity\obj\Debug\netcoreapp3.1\Entity.pdb
