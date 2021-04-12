@@ -87,7 +87,6 @@ C:\Users\Ze\Desktop\App\AgendamentoApp\AgendamentoTecnicosJacto\obj\Debug\netcor
 C:\Users\Ze\Desktop\App\AgendamentoApp\AgendamentoTecnicosJacto\obj\Debug\netcoreapp3.1\AgendamentoTecnicosJacto.RazorCoreGenerate.cache
 C:\Users\Ze\Desktop\App\AgendamentoApp\AgendamentoTecnicosJacto\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
 C:\Users\Ze\Desktop\App\AgendamentoApp\AgendamentoTecnicosJacto\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\Ze\Desktop\App\AgendamentoApp\AgendamentoTecnicosJacto\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\Ze\Desktop\App\AgendamentoApp\AgendamentoTecnicosJacto\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\Ze\Desktop\App\AgendamentoApp\AgendamentoTecnicosJacto\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Ze\Desktop\App\AgendamentoApp\AgendamentoTecnicosJacto\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
@@ -101,3 +100,5 @@ C:\Users\Ze\Desktop\App\AgendamentoApp\AgendamentoTecnicosJacto\obj\Debug\netcor
 C:\Users\Ze\Desktop\App\AgendamentoApp\AgendamentoTecnicosJacto\obj\Debug\netcoreapp3.1\AgendamentoTecnicosJacto.dll
 C:\Users\Ze\Desktop\App\AgendamentoApp\AgendamentoTecnicosJacto\obj\Debug\netcoreapp3.1\AgendamentoTecnicosJacto.pdb
 C:\Users\Ze\Desktop\App\AgendamentoApp\AgendamentoTecnicosJacto\obj\Debug\netcoreapp3.1\AgendamentoTecnicosJacto.genruntimeconfig.cache
+C:\Users\Ze\Desktop\App\AgendamentoApp\AgendamentoTecnicosJacto\obj\Debug\netcoreapp3.1\Razor\Views\Appointment\Index.cshtml.g.cs
+C:\Users\Ze\Desktop\App\AgendamentoApp\AgendamentoTecnicosJacto\obj\Debug\netcoreapp3.1\Razor\Views\Appointment\Create.cshtml.g.cs
