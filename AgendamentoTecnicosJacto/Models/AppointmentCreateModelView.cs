@@ -8,6 +8,8 @@ namespace AgendamentoTecnicosJacto.Models
 {
     public class AppointmentCreateModelView
     {
+
+
         public int Id { get; set; }
         [Display(Name = "Código de Registro")]
         public int TechnicianId { get; set; }
@@ -18,14 +20,12 @@ namespace AgendamentoTecnicosJacto.Models
         public string AppointmentName { get; set; }
         [Display(Name = "Observação")]
         public string Observations { get; set; } // Details about the visit
-        [Required(ErrorMessage = "Campo obrigatório"),
+        [Required(ErrorMessage = "Campo obrigatório"), 
             DataType(DataType.Date), Display(Name = "Data de início")]
         public DateTime StartDate { get; set; } = DateTime.UtcNow;
         [Required(ErrorMessage = "Campo obrigatório"),
             DataType(DataType.Date), Display(Name = "Data de término estimada")]
         public DateTime ExpectedFinalDate { get; set; } = DateTime.UtcNow.AddDays(1);
-        [DataType(DataType.Date), Display(Name = "Data de término real")]
-        public DateTime RealFinalDate { get; set; }
         [Required(ErrorMessage = "Campo obrigatório"), RegularExpression(@"^[0-9]*$"),
             Display(Name = "Código Postal")]
         public string Postcode { get; set; } 
@@ -33,6 +33,8 @@ namespace AgendamentoTecnicosJacto.Models
         public string Address { get; set; } 
         [Required(ErrorMessage = "Campo obrigatório"), Display(Name = "Cidade")]
         public string City { get; set; }
+        [Required(ErrorMessage = "Campo obrigatório"), Display(Name = "Estado")]
+        public string State { get; set; }
         [Required(ErrorMessage = "Campo obrigatório"), Display(Name = "Bairro")]
         public string District { get; set; }
         [Display(Name = "Número")]

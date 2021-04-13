@@ -19,9 +19,9 @@ namespace AgendamentoTecnicosJacto.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index(int id)
+        public IActionResult Index(int technicianId)
         {
-            var appointments = _appointmentService.GetAppointments(id).Select(appointment => new AppointmentIndexModelView
+            var appointments = _appointmentService.GetAppointments(technicianId).Select(appointment => new AppointmentIndexModelView
             {
                 Id = appointment.Id,
                 TechnicianId = appointment.TechnicianId,
@@ -30,24 +30,24 @@ namespace AgendamentoTecnicosJacto.Controllers
                 StartDate = appointment.StartDate,
                 ExpectedFinalDate = appointment.ExpectedFinalDate,
                 RealFinalDate = appointment.RealFinalDate,
-                Completed = appointment.Completed
+                Completed = appointment.Completed,
             }).ToList();
 
             return View(appointments);
         }
 
         [HttpGet]
-        public IActionResult Create(int id)
+        public IActionResult Create(int technicianId)
         {
-            var appointment = _appointmentService.GetById(id);
-            if (appointment == null)
+            var technician = _appointmentService.GetTechnician(technicianId);
+            if (technician == null)
             {
                 return NotFound();
             }
             var model = new AppointmentCreateModelView()
             {
-                TechnicianName = appointment.TechnicianName,
-                TechnicianId = appointment.TechnicianId
+                TechnicianName = technician.Name,
+                TechnicianId = technician.TechnicianId
             };
             return View(model);
         }
@@ -56,20 +56,30 @@ namespace AgendamentoTecnicosJacto.Controllers
         [ValidateAntiForgeryToken] //Prevents cross-site Request Forgery Attacks
         public async Task<IActionResult> Create(AppointmentCreateModelView model)
         {
+            if (model.StartDate > model.ExpectedFinalDate)
+            {
+                return View();
+            }
             if (ModelState.IsValid)
             {
                 var appointment = new Appointment
                 {
                     Id = model.Id,
                     TechnicianId = model.TechnicianId,
+                    TechnicianName = model.TechnicianName,
                     Observations = model.Observations,
                     StartDate = model.StartDate,
                     ExpectedFinalDate = model.ExpectedFinalDate,
-                    RealFinalDate = model.RealFinalDate
-
+                    Address = model.Address,
+                    AppointmentName = model.AppointmentName,
+                    City = model.City,
+                    District = model.District,
+                    Number = model.Number,
+                    Postcode = model.Postcode,
+                    State = model.State
                 };
                 await _appointmentService.CreateAsync(appointment);
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), new { technicianId = 1 });
             }
             return View();
         }
@@ -86,19 +96,30 @@ namespace AgendamentoTecnicosJacto.Controllers
             {
                 Id = appointment.Id,
                 TechnicianId = appointment.TechnicianId,
+                TechnicianName = appointment.TechnicianName,
                 Observations = appointment.Observations,
                 StartDate = appointment.StartDate,
                 ExpectedFinalDate = appointment.ExpectedFinalDate,
-                RealFinalDate = appointment.RealFinalDate
-
+                Address = appointment.Address,
+                AppointmentName = appointment.AppointmentName,
+                City = appointment.City,
+                District = appointment.District,
+                Number = appointment.Number,
+                Postcode = appointment.Postcode,
+                State = appointment.State
             };
+
             return View(model);
         }
 
-        [HttpPut]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(AppointmentEditModelView model)
         {
+            if (model.StartDate > model.ExpectedFinalDate)
+            {
+                return View();
+            }
             if (ModelState.IsValid)
             {
                 var appointment = _appointmentService.GetById(model.Id);
@@ -106,16 +127,20 @@ namespace AgendamentoTecnicosJacto.Controllers
                 {
                     return NotFound();
                 }
-                
-                appointment.Id = model.Id;
-                appointment.TechnicianId = model.TechnicianId;
+
                 appointment.Observations = model.Observations;
                 appointment.StartDate = model.StartDate;
                 appointment.ExpectedFinalDate = model.ExpectedFinalDate;
-                appointment.RealFinalDate = model.RealFinalDate;
+                appointment.Address = model.Address;
+                appointment.AppointmentName = model.AppointmentName;
+                appointment.City = model.City;
+                appointment.District = model.District;
+                appointment.Number = model.Number;
+                appointment.Postcode = model.Postcode;
+                appointment.State = model.State;
 
                 await _appointmentService.UpdateAsync(appointment);
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), new { technicianId = 1 });
             }
             return View();
         }
@@ -131,17 +156,17 @@ namespace AgendamentoTecnicosJacto.Controllers
             var model = new AppointmentDeleteViewModel()
             {
                 Id = appointment.Id,
-                TechnicianId = appointment.TechnicianId
+                AppointmentName = appointment.AppointmentName
             };
             return View(model);
         }
 
-        [HttpDelete]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(AppointmentDeleteViewModel model)
         {
             await _appointmentService.Delete(model.Id);
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index), new { technicianId = 1 });
         }
 
         [HttpGet]
@@ -157,6 +182,36 @@ namespace AgendamentoTecnicosJacto.Controllers
             }
 
             
+        }
+
+        [HttpGet]
+        public IActionResult Details(int id) 
+        {
+            var appointment = _appointmentService.GetById(id);
+            if (appointment == null)
+            {
+                return NotFound();
+            }
+
+            var model = new AppointmentDetailsViewModel()
+            {
+                Id = appointment.Id,
+                TechnicianId = appointment.TechnicianId,
+                TechnicianName = appointment.TechnicianName,
+                Observations = appointment.Observations,
+                StartDate = appointment.StartDate,
+                ExpectedFinalDate = appointment.ExpectedFinalDate,
+                RealFinalDate = appointment.RealFinalDate,
+                Address = appointment.Address,
+                AppointmentName = appointment.AppointmentName,
+                City = appointment.City,
+                District = appointment.District,
+                Number = appointment.Number,
+                Postcode = appointment.Postcode,
+                State = appointment.State
+            };
+
+            return View(model);
         }
 
     }

@@ -15,5 +15,6 @@ namespace Services
         Task UpdateAsync(int appointmentId);
         Task Delete(int appointmentId);
         IEnumerable<Appointment> GetAppointments(int technicianId);
+        Technician GetTechnician(int technicianId);
     }
 }

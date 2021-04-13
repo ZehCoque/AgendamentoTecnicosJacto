@@ -1,6 +1,6 @@
-﻿@model AppointmentCreateModelView
+﻿@model AppointmentDetailsViewModel
 
-@{ ViewBag.Title = "Novo Agendamento";}
+@{ ViewBag.Title = "Visualizar Agendamento";}
 
 <script src="~/lib/jquery/dist/jquery.js"></script>
 
@@ -20,7 +20,6 @@
                         <div style="width:100%">
                             <label asp-for="TechnicianId"></label>
                             <input asp-for="TechnicianId" class="form-control" readonly style=" background-color: #E9ECEF" />
-                            <span asp-validation-for="TechnicianId" class="text-danger"></span>
                         </div>
                     </div>
 
@@ -29,41 +28,55 @@
                         <div style="width:100%">
                             <label asp-for="TechnicianName"></label>
                             <input asp-for="TechnicianName" class="form-control" readonly style=" background-color: #E9ECEF" />
-                            <span asp-validation-for="TechnicianName" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
 
-
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-row text-center">
 
-                    <div style="display:flex" class="col-md-4 form-group">
+                    <div style="display:flex" class="col-md-3 form-group">
                         <div style="width:100%">
                             <label asp-for="AppointmentName"></label>
-                            <input asp-for="AppointmentName" class="form-control" />
-                            <span asp-validation-for="AppointmentName" class="text-danger"></span>
+                            <input asp-for="AppointmentName" class="form-control" readonly style=" background-color: #E9ECEF" />
                         </div>
                     </div>
 
 
-                    <div style="display:flex" class="col-md-4 form-group">
+                    <div style="display:flex" class="col-md-3 form-group">
                         <div style="width:100%">
                             <label asp-for="StartDate"></label>
-                            <input asp-for="StartDate" class="form-control" />
-                            <span asp-validation-for="StartDate" class="text-danger"></span>
+                            <input asp-for="StartDate" class="form-control" readonly style=" background-color: #E9ECEF" />
                         </div>
                     </div>
 
-                    <div style="display:flex" class="col-md-4 form-group">
+                    @if (!Model.Completed)
+                    {
+                        <div style="display:flex" class="col-md-3 form-group">
+                            <div style="width:100%">
+                                <label asp-for="ExpectedFinalDate"></label>
+                                <input class="form-control" readonly style=" background-color: #E9ECEF" />
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div style="display:flex" class="col-md-3 form-group">
+                            <div style="width:100%">
+                                <label asp-for="ExpectedFinalDate"></label>
+                                <input asp-for="ExpectedFinalDate" class="form-control" readonly style=" background-color: #E9ECEF" />
+                            </div>
+                        </div>
+                    }
+
+
+
+                    <div style="display:flex" class="col-md-3 form-group">
                         <div style="width:100%">
-                            <label asp-for="ExpectedFinalDate"></label>
-                            <input asp-for="ExpectedFinalDate" class="form-control" />
-                            <span asp-validation-for="ExpectedFinalDate" class="text-danger"></span>
+                            <label asp-for="RealFinalDate"></label>
+                            <input asp-for="RealFinalDate" class="form-control" readonly style=" background-color: #E9ECEF" />
                         </div>
                     </div>
 
-                    
 
                 </div>
 
@@ -72,62 +85,14 @@
                     <div style="display:flex" class="col-md-2 form-group">
                         <div style="width:100%">
                             <label asp-for="Postcode"></label>
-                            <input id="postcodeForm" asp-for="Postcode" class="form-control" />
-                            <span asp-validation-for="Postcode" class="text-danger"></span>
+                            <input id="postcodeForm" asp-for="Postcode" class="form-control" readonly style=" background-color: #E9ECEF"/>
                         </div>
                     </div>
 
-                    <div style="padding-top: 32px" class="col-md-2 form-group">
-                        <button type="button" class="btn btn-rounded btn-primary" id="postcodeButton">
-                            Buscar endereço
-                        </button>
-                    </div>
-
-                </div>
-
-                <script>
-
-                    $(document).ready(function () {
-
-                        $('#postcodeButton').click(function () {
-
-                            var postcode = $('#postcodeForm').val();
-
-                            if (postcode == null) return; //do nothing if postcode is null
-
-                            data = {}
-                            $.ajax({
-                                type: 'GET',
-                                url: 'https://viacep.com.br/ws/' + postcode + '/json/',
-                                data: data,
-                                dataType: 'json',
-                                success: function (data) {
-
-                                    $('#address').val(data.logradouro);
-                                    $('#city').val(data.localidade);
-                                    $('#district').val(data.bairro);
-                                    $('#state').val(data.uf);
-
-                                },
-                                error: function () {
-                                    alert("Código postal inválido");
-                                },
-
-                            });
-
-                        });
-
-
-                    });
-
-                </script>
-
-                <div class="form-row text-center">
                     <div style="display:flex" class="col-md-3 form-group">
                         <div style="width:100%">
                             <label asp-for="Address"></label>
                             <input id="address" asp-for="Address" class="form-control" readonly style=" background-color: #E9ECEF" />
-                            <span asp-validation-for="Address" class="text-danger"></span>
                         </div>
                     </div>
 
@@ -135,24 +100,21 @@
                     <div style="display:flex" class="col-md-2 form-group">
                         <div style="width:100%">
                             <label asp-for="Number"></label>
-                            <input asp-for="Number" class="form-control" />
-                            <span asp-validation-for="Number" class="text-danger"></span>
-                        </div>
-                    </div>
-
-                    <div style="display:flex" class="col-md-3 form-group">
-                        <div style="width:100%">
-                            <label asp-for="City"></label>
-                            <input id="city" asp-for="City" class="form-control" readonly style=" background-color: #E9ECEF" />
-                            <span asp-validation-for="City" class="text-danger"></span>
+                            <input asp-for="Number" class="form-control" readonly style=" background-color: #E9ECEF"/>
                         </div>
                     </div>
 
                     <div style="display:flex" class="col-md-2 form-group">
                         <div style="width:100%">
+                            <label asp-for="City"></label>
+                            <input id="city" asp-for="City" class="form-control" readonly style=" background-color: #E9ECEF" />
+                        </div>
+                    </div>
+
+                    <div style="display:flex" class="col-md-1 form-group">
+                        <div style="width:100%">
                             <label asp-for="State"></label>
                             <input id="state" asp-for="State" class="form-control" readonly style=" background-color: #E9ECEF" />
-                            <span asp-validation-for="State" class="text-danger"></span>
                         </div>
                     </div>
 
@@ -160,7 +122,6 @@
                         <div style="width:100%">
                             <label asp-for="District"></label>
                             <input id="district" asp-for="District" class="form-control" readonly style=" background-color: #E9ECEF" />
-                            <span asp-validation-for="District" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
@@ -170,8 +131,7 @@
                     <div style="display:flex" class="col-md-12 form-group">
                         <div style="width:100%">
                             <label asp-for="Observations"></label>
-                            <input type="text" asp-for="Observations" class="form-control" />
-                            <span asp-validation-for="Observations" class="text-danger"></span>
+                            <input type="text" asp-for="Observations" class="form-control" readonly style=" background-color: #E9ECEF"/>
                         </div>
                     </div>
 
@@ -182,7 +142,6 @@
 
                 <div class="form-group">
 
-                    <button type="submit" class="btn btn-rounded btn-primary float-left">Salvar</button>
                     <a asp-action="index" asp-route-technicianId="1" class="btn btn-rounded btn-success float-right">Voltar</a>
                     <br />
                     <br />

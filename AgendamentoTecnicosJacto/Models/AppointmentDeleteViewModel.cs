@@ -8,7 +8,7 @@ namespace AgendamentoTecnicosJacto.Models
     public class AppointmentDeleteViewModel
     {
         public int Id { get; set; }
-        public int TechnicianId { get; set; }
+        public string AppointmentName { get; set; }
 
     }
 }

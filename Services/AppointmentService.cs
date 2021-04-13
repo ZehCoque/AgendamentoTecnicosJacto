@@ -33,9 +33,13 @@ namespace Services
         public IEnumerable<Appointment> GetAppointments(int technicianId) => _context.Appointments.Where(a => a.TechnicianId == technicianId);
 
         public Appointment GetById(int appointmentId) => _context.Appointments.Where(a => a.Id == appointmentId).FirstOrDefault();
-        public Task UpdateAsync(Appointment newAppointment)
+
+        public Technician GetTechnician(int technicianId) => _context.Technicians.Where(t => t.Id == technicianId).FirstOrDefault();
+
+        public async Task UpdateAsync(Appointment newAppointment)
         {
-            throw new NotImplementedException();
+            _context.Update(newAppointment);
+            await _context.SaveChangesAsync();
         }
 
         public async Task UpdateAsync(int appointmentId)

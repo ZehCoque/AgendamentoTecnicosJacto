@@ -14,7 +14,7 @@
                 </nav><br /><br />
                 <div class="row">
                     <div class="col-md-12 table-responsive-md">
-                        <a class="btn btn-xs btn-outline-success float-md-right" asp-action="Create" asp-route-id="1"> Novo Agendamento</a>
+                        <a class="btn btn-xs btn-outline-success float-md-right" asp-action="Create" asp-route-technicianId="1">Novo Agendamento</a>
                         <br /><br />
                         <table class="table table-striped text-center">
                             <thead>
@@ -22,7 +22,6 @@
                                     <th>Agendamento</th>
                                     <th>Data de ínicio</th>
                                     <th>Data de término estimada</th>
-                                    <th>Data de término real</th>
                                     <th>Status</th>
                                 </tr>
                             </thead>
@@ -30,10 +29,9 @@
                                 @foreach (var item in Model)
                                 {
                                     <tr>
-                                        <td>@item.AppointmentName</td>
+                                        <td> <a class="text-primary" asp-action="Details" asp-route-id="@item.Id">@item.AppointmentName</a></td>
                                         <td>@item.StartDate.ToString("dd/MM/yyyy")</td>
                                         <td>@item.ExpectedFinalDate.ToString("dd/MM/yyyy")</td>
-                                        <td>@item.RealFinalDate.ToString("dd/MM/yyyy")</td>
                                         <td>
                                             @if (item.Completed)
                                             {
@@ -47,9 +45,6 @@
                                         <td>
                                             <a class="text-primary" asp-action="Edit" asp-route-id="@item.Id">
                                                 Editar
-                                            </a>
-                                            <a class="text-primary" asp-action="Detalhes" asp-route-id="@item.Id">
-                                                Detalhes
                                             </a>
                                             <a class="text-danger" asp-action="Delete" asp-route-id="@item.Id">
                                                 Deletar

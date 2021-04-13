@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AgendamentoTecnicosJacto.Models
 {
-    public class AppointmentEditModelView
+    public class AppointmentDetailsViewModel
     {
         public int Id { get; set; }
         [Display(Name = "Código de Registro")]
@@ -25,7 +25,7 @@ namespace AgendamentoTecnicosJacto.Models
             DataType(DataType.Date), Display(Name = "Data de término estimada")]
         public DateTime ExpectedFinalDate { get; set; } = DateTime.UtcNow.AddDays(1);
         [DataType(DataType.Date), Display(Name = "Data de término real")]
-        public DateTime RealFinalDate { get; set; }
+        public DateTime? RealFinalDate { get; set; }
         [Required(ErrorMessage = "Campo obrigatório"), RegularExpression(@"^[0-9]*$"),
             Display(Name = "Código Postal")]
         public string Postcode { get; set; }
@@ -39,6 +39,7 @@ namespace AgendamentoTecnicosJacto.Models
         public string District { get; set; }
         [Display(Name = "Número")]
         public int? Number { get; set; }
-        public bool Completed { get; set; } = false;
+        [Display(Name = "Status")]
+        public bool Completed { get; set; }
     }
 }

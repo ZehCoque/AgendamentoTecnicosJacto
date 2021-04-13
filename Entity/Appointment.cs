@@ -20,6 +20,7 @@ namespace Entity
         public DateTime RealFinalDate { get; set; }
         public string Postcode { get; set; } //CEP
         public string Address { get; set; } //Logradouro
+        public string State { get; set; } //Logradouro
         public string City { get; set; } //Localidade
         public string District { get; set; } //Bairro
         public int? Number { get; set; } // not provided by the API

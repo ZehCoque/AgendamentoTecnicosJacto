@@ -1,6 +1,6 @@
-﻿@model AppointmentCreateModelView
+﻿@model AppointmentEditModelView
 
-@{ ViewBag.Title = "Novo Agendamento";}
+@{ ViewBag.Title = "Editar Agendamento";}
 
 <script src="~/lib/jquery/dist/jquery.js"></script>
 
@@ -11,10 +11,10 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
                     <li class="breadcrumb-item"><a asp-action="Index">Lista de Agendamentos</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Novo Agendamento</li>
+                    <li class="breadcrumb-item active" aria-current="page">Editar Agendamento</li>
                 </ol>
             </nav><br /><br />
-            <form method="post" enctype="multipart/form-data" asp-action="Create">
+            <form method="post" enctype="multipart/form-data" asp-action="Edit">
                 <div class="form-row text-center">
                     <div style="display:flex" class="col-md-3 form-group">
                         <div style="width:100%">
@@ -62,8 +62,6 @@
                             <span asp-validation-for="ExpectedFinalDate" class="text-danger"></span>
                         </div>
                     </div>
-
-                    
 
                 </div>
 
@@ -182,7 +180,7 @@
 
                 <div class="form-group">
 
-                    <button type="submit" class="btn btn-rounded btn-primary float-left">Salvar</button>
+                    <button type="submit" class="btn btn-rounded btn-primary float-left">Editar</button>
                     <a asp-action="index" asp-route-technicianId="1" class="btn btn-rounded btn-success float-right">Voltar</a>
                     <br />
                     <br />
