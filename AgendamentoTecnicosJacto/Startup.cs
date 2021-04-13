@@ -32,7 +32,7 @@ namespace AgendamentoTecnicosJacto
                  options.UseMySql(Configuration.GetConnectionString("DefaultConnection"))
              );
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddScoped<IAppointment, AppointmentService>();

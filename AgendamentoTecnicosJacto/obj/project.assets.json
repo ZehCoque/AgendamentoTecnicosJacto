@@ -2,44 +2,6 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "FluentValidation/10.0.2": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.1/FluentValidation.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.1/FluentValidation.dll": {}
-        }
-      },
-      "FluentValidation.AspNetCore/10.0.2": {
-        "type": "package",
-        "dependencies": {
-          "FluentValidation": "10.0.2",
-          "FluentValidation.DependencyInjectionExtensions": "10.0.2"
-        },
-        "compile": {
-          "lib/netcoreapp3.1/FluentValidation.AspNetCore.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/FluentValidation.AspNetCore.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
-      },
-      "FluentValidation.DependencyInjectionExtensions/10.0.2": {
-        "type": "package",
-        "dependencies": {
-          "FluentValidation": "10.0.2",
-          "Microsoft.Extensions.Dependencyinjection.Abstractions": "2.1.0"
-        },
-        "compile": {
-          "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.dll": {}
-        }
-      },
       "Microsoft.AspNetCore.Cryptography.Internal/3.1.14": {
         "type": "package",
         "compile": {
@@ -89,11 +51,11 @@
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Identity.UI/3.1.14": {
+      "Microsoft.AspNetCore.Identity.UI/3.1.13": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.FileProviders.Embedded": "3.1.14",
-          "Microsoft.Extensions.Identity.Stores": "3.1.14",
+          "Microsoft.Extensions.FileProviders.Embedded": "3.1.13",
+          "Microsoft.Extensions.Identity.Stores": "3.1.13",
           "Newtonsoft.Json": "12.0.2"
         },
         "compile": {
@@ -214,14 +176,14 @@
           "lib/netstandard2.0/_._": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Design/3.1.14": {
+      "Microsoft.EntityFrameworkCore.Design/3.1.13": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
-          "Microsoft.EntityFrameworkCore.Relational": "3.1.14"
+          "Microsoft.EntityFrameworkCore.Relational": "3.1.13"
         },
         "compile": {
-          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Design.dll": {}
+          "lib/netstandard2.0/_._": {}
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Design.dll": {}
@@ -255,11 +217,11 @@
           "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Relational.Design.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.SqlServer/3.1.14": {
+      "Microsoft.EntityFrameworkCore.SqlServer/3.1.13": {
         "type": "package",
         "dependencies": {
           "Microsoft.Data.SqlClient": "1.1.3",
-          "Microsoft.EntityFrameworkCore.Relational": "3.1.14"
+          "Microsoft.EntityFrameworkCore.Relational": "3.1.13"
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.SqlServer.dll": {}
@@ -268,10 +230,10 @@
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.SqlServer.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Tools/3.1.14": {
+      "Microsoft.EntityFrameworkCore.Tools/3.1.13": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Design": "3.1.14"
+          "Microsoft.EntityFrameworkCore.Design": "3.1.13"
         },
         "compile": {
           "lib/netstandard2.0/_._": {}
@@ -364,10 +326,10 @@
           "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
         }
       },
-      "Microsoft.Extensions.FileProviders.Abstractions/3.1.14": {
+      "Microsoft.Extensions.FileProviders.Abstractions/3.1.13": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Primitives": "3.1.14"
+          "Microsoft.Extensions.Primitives": "3.1.13"
         },
         "compile": {
           "lib/netcoreapp3.1/Microsoft.Extensions.FileProviders.Abstractions.dll": {}
@@ -376,10 +338,10 @@
           "lib/netcoreapp3.1/Microsoft.Extensions.FileProviders.Abstractions.dll": {}
         }
       },
-      "Microsoft.Extensions.FileProviders.Embedded/3.1.14": {
+      "Microsoft.Extensions.FileProviders.Embedded/3.1.13": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.FileProviders.Abstractions": "3.1.14"
+          "Microsoft.Extensions.FileProviders.Abstractions": "3.1.13"
         },
         "compile": {
           "lib/netcoreapp3.1/Microsoft.Extensions.FileProviders.Embedded.dll": {}
@@ -2331,56 +2293,6 @@
     }
   },
   "libraries": {
-    "FluentValidation/10.0.2": {
-      "sha512": "5jKQ9hhXQRobK8pmADPKEdtbo365q/dWQZtGUZYNZRL2Nd+nm1vMcKxMiFFTtg4fLX1BjkvA6QF0bfZqMKo0Ww==",
-      "type": "package",
-      "path": "fluentvalidation/10.0.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "fluent-validation-icon.png",
-        "fluentvalidation.10.0.2.nupkg.sha512",
-        "fluentvalidation.nuspec",
-        "lib/net5.0/FluentValidation.dll",
-        "lib/net5.0/FluentValidation.xml",
-        "lib/netstandard2.0/FluentValidation.dll",
-        "lib/netstandard2.0/FluentValidation.xml",
-        "lib/netstandard2.1/FluentValidation.dll",
-        "lib/netstandard2.1/FluentValidation.xml"
-      ]
-    },
-    "FluentValidation.AspNetCore/10.0.2": {
-      "sha512": "rti1uNkB+qtlyJ/R4Rft5XMnXvPP2UC72osLNoXNOZLxTElf+rg3saOMx2IVOdsX6K08MMOs4mSGRx87bXDrgw==",
-      "type": "package",
-      "path": "fluentvalidation.aspnetcore/10.0.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "fluent-validation-icon.png",
-        "fluentvalidation.aspnetcore.10.0.2.nupkg.sha512",
-        "fluentvalidation.aspnetcore.nuspec",
-        "lib/net5.0/FluentValidation.AspNetCore.dll",
-        "lib/net5.0/FluentValidation.AspNetCore.xml",
-        "lib/netcoreapp3.1/FluentValidation.AspNetCore.dll",
-        "lib/netcoreapp3.1/FluentValidation.AspNetCore.xml"
-      ]
-    },
-    "FluentValidation.DependencyInjectionExtensions/10.0.2": {
-      "sha512": "Hw123xnElYQJ6s8AncCpm2s0yDdIoqqF3Pdgvcon4WnkbiNVMFDnTUhTql40bmGvP5r088yTjvJcxZ8Ptzt+mg==",
-      "type": "package",
-      "path": "fluentvalidation.dependencyinjectionextensions/10.0.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "fluent-validation-icon.png",
-        "fluentvalidation.dependencyinjectionextensions.10.0.2.nupkg.sha512",
-        "fluentvalidation.dependencyinjectionextensions.nuspec",
-        "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.dll",
-        "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.xml",
-        "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.dll",
-        "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.xml"
-      ]
-    },
     "Microsoft.AspNetCore.Cryptography.Internal/3.1.14": {
       "sha512": "/Og/NUD1skty5XtX9jkXNpqJpft/xBuM6N3RM7fYuJuEetWdsnvsDsLKtMTdHOffwf21gUmdsrmIgcCYtluGRA==",
       "type": "package",
@@ -2449,10 +2361,10 @@
         "microsoft.aspnetcore.identity.entityframeworkcore.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Identity.UI/3.1.14": {
-      "sha512": "K67F0kzUGqRzLfY00LCHT4Mm2zfvbuiThEsjwr6a/q6oNSeoSO0fr5v//lMn/yvMqbUZtCzrF+UT53QSEp8yNQ==",
+    "Microsoft.AspNetCore.Identity.UI/3.1.13": {
+      "sha512": "s1lfsizTrrnssWwSOQQK9KggosO7emXtRO1F2kcfoIGCEWNqehWrZ+LRV/RwDfMw9ZW0FTbl9ur/Trm0HH/42Q==",
       "type": "package",
-      "path": "microsoft.aspnetcore.identity.ui/3.1.14",
+      "path": "microsoft.aspnetcore.identity.ui/3.1.13",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2468,7 +2380,7 @@
         "lib/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.Views.V4.dll",
         "lib/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.dll",
         "lib/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.xml",
-        "microsoft.aspnetcore.identity.ui.3.1.14.nupkg.sha512",
+        "microsoft.aspnetcore.identity.ui.3.1.13.nupkg.sha512",
         "microsoft.aspnetcore.identity.ui.nuspec",
         "staticwebassets/V3/css/site.css",
         "staticwebassets/V3/js/site.js",
@@ -2753,10 +2665,10 @@
         "microsoft.entityframeworkcore.analyzers.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Design/3.1.14": {
-      "sha512": "itW4mSsHdCxojSZ7fhMwlgZnLrW7CbkJiMPYz9ngYO3Ny7ezl0zORgXIlZriynY99+7OAAYkqOu7EGHMHIU42Q==",
+    "Microsoft.EntityFrameworkCore.Design/3.1.13": {
+      "sha512": "rcxpmGqAeHpR4qmsKm8H9ka1LeOPXlKwwxetJvo8D/et0Wa0iRy29RkWcWuPMF1OEfdm1N6lObmF31YwOedPdQ==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.design/3.1.14",
+      "path": "microsoft.entityframeworkcore.design/3.1.13",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2765,7 +2677,7 @@
         "build/netcoreapp2.0/Microsoft.EntityFrameworkCore.Design.props",
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Design.dll",
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Design.xml",
-        "microsoft.entityframeworkcore.design.3.1.14.nupkg.sha512",
+        "microsoft.entityframeworkcore.design.3.1.13.nupkg.sha512",
         "microsoft.entityframeworkcore.design.nuspec"
       ]
     },
@@ -2798,31 +2710,31 @@
         "microsoft.entityframeworkcore.relational.design.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.SqlServer/3.1.14": {
-      "sha512": "QAEsRFqVSRFrjQTz2mjWuzfIl5g6ssC3CizJNdtyNHudvsRCk2v98wMqhaaO8fMyKQ4PGinxAzobR/bMFC/bUA==",
+    "Microsoft.EntityFrameworkCore.SqlServer/3.1.13": {
+      "sha512": "nTE7mzpET/Ox680NheeGOSGxQMB7IATwjk98ZcdQgLOWUYifrHFCXD24AwHcegSN5nGX2W9ivsGSpRR9FyE0EA==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.sqlserver/3.1.14",
+      "path": "microsoft.entityframeworkcore.sqlserver/3.1.13",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.SqlServer.dll",
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.SqlServer.xml",
-        "microsoft.entityframeworkcore.sqlserver.3.1.14.nupkg.sha512",
+        "microsoft.entityframeworkcore.sqlserver.3.1.13.nupkg.sha512",
         "microsoft.entityframeworkcore.sqlserver.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Tools/3.1.14": {
-      "sha512": "dIqOuk9NI7qbCTWYULPRU8BZC9a5VsN8I47oIckKVtCI2FIb/wJd77xBAPl6YNarAtvi3ZmZLAoEP75g1uKTmg==",
+    "Microsoft.EntityFrameworkCore.Tools/3.1.13": {
+      "sha512": "ZaW+YN+yA15CQJV2aVdMnP7mTALjPicuAN9vix0YNqi0m2zhwTk/1CCq2y6/SZz2hI3PbRtWvtwSkahyO/bymQ==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.tools/3.1.14",
+      "path": "microsoft.entityframeworkcore.tools/3.1.13",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/netstandard2.0/_._",
-        "microsoft.entityframeworkcore.tools.3.1.14.nupkg.sha512",
+        "microsoft.entityframeworkcore.tools.3.1.13.nupkg.sha512",
         "microsoft.entityframeworkcore.tools.nuspec",
         "tools/EntityFrameworkCore.PS2.psd1",
         "tools/EntityFrameworkCore.PS2.psm1",
@@ -2950,10 +2862,10 @@
         "microsoft.extensions.dependencyinjection.abstractions.nuspec"
       ]
     },
-    "Microsoft.Extensions.FileProviders.Abstractions/3.1.14": {
-      "sha512": "BXJL9Fn4ywVHGKXvmBdznf8CKBQ0rD7ZXHONYjxkAdb58uqcumS8WnTFmkuTs9h2g4qEHmijpHV8URvhMSYd3Q==",
+    "Microsoft.Extensions.FileProviders.Abstractions/3.1.13": {
+      "sha512": "/sDiRV2TKE7hsgwsL+1w8Dz0Zu+41Dyu4zmO+PeYrdfBY5dXkE8kLKgRoVtg28LT6USJh0MLJtlzGco5bwc6bA==",
       "type": "package",
-      "path": "microsoft.extensions.fileproviders.abstractions/3.1.14",
+      "path": "microsoft.extensions.fileproviders.abstractions/3.1.13",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2962,14 +2874,14 @@
         "lib/netcoreapp3.1/Microsoft.Extensions.FileProviders.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Abstractions.xml",
-        "microsoft.extensions.fileproviders.abstractions.3.1.14.nupkg.sha512",
+        "microsoft.extensions.fileproviders.abstractions.3.1.13.nupkg.sha512",
         "microsoft.extensions.fileproviders.abstractions.nuspec"
       ]
     },
-    "Microsoft.Extensions.FileProviders.Embedded/3.1.14": {
-      "sha512": "KSgV19MbXZ1svck1KBI9lJjdHW/np9NO35iGmQ/8wC576cZWNrl47gcaus1hUbj7ukX1l2LwUjMGx/GmQ9sUYg==",
+    "Microsoft.Extensions.FileProviders.Embedded/3.1.13": {
+      "sha512": "no29xahK1HYAHJPRdBNpy2gdowsyOgzNLkFBd4k9PnzZjd9rF4Q31CywvatHcs64KsMBSBE4cYQECiGNVBvPWg==",
       "type": "package",
-      "path": "microsoft.extensions.fileproviders.embedded/3.1.14",
+      "path": "microsoft.extensions.fileproviders.embedded/3.1.13",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2982,7 +2894,7 @@
         "lib/netcoreapp3.1/Microsoft.Extensions.FileProviders.Embedded.xml",
         "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Embedded.dll",
         "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Embedded.xml",
-        "microsoft.extensions.fileproviders.embedded.3.1.14.nupkg.sha512",
+        "microsoft.extensions.fileproviders.embedded.3.1.13.nupkg.sha512",
         "microsoft.extensions.fileproviders.embedded.nuspec",
         "tasks/netstandard2.0/Microsoft.Extensions.FileProviders.Embedded.Manifest.Task.dll"
       ]
@@ -7784,12 +7696,11 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Entity >= 1.0.0",
-      "FluentValidation.AspNetCore >= 10.0.2",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 3.1.14",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 3.1.14",
-      "Microsoft.AspNetCore.Identity.UI >= 3.1.14",
-      "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.14",
-      "Microsoft.EntityFrameworkCore.Tools >= 3.1.14",
+      "Microsoft.AspNetCore.Identity.UI >= 3.1.13",
+      "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.13",
+      "Microsoft.EntityFrameworkCore.Tools >= 3.1.13",
       "Pomelo.EntityFrameworkCore.MySql >= 3.2.4",
       "Services >= 1.0.0"
     ]
@@ -7840,10 +7751,6 @@
       "netcoreapp3.1": {
         "targetAlias": "netcoreapp3.1",
         "dependencies": {
-          "FluentValidation.AspNetCore": {
-            "target": "Package",
-            "version": "[10.0.2, )"
-          },
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
             "target": "Package",
             "version": "[3.1.14, )"
@@ -7854,15 +7761,17 @@
           },
           "Microsoft.AspNetCore.Identity.UI": {
             "target": "Package",
-            "version": "[3.1.14, )"
+            "version": "[3.1.13, )"
           },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
-            "version": "[3.1.14, )"
+            "version": "[3.1.13, )"
           },
           "Microsoft.EntityFrameworkCore.Tools": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
             "target": "Package",
-            "version": "[3.1.14, )"
+            "version": "[3.1.13, )"
           },
           "Pomelo.EntityFrameworkCore.MySql": {
             "target": "Package",
