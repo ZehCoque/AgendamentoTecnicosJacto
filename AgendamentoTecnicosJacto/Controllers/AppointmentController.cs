@@ -1,5 +1,6 @@
 ﻿using AgendamentoTecnicosJacto.Models;
 using Entity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Services;
 using System;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace AgendamentoTecnicosJacto.Controllers
 {
+    [Authorize]
     public class AppointmentController : Controller
     {
         private readonly IAppointment _appointmentService;
@@ -169,20 +171,6 @@ namespace AgendamentoTecnicosJacto.Controllers
             return RedirectToAction(nameof(Index), new { technicianId = 1 });
         }
 
-        [HttpGet]
-        public async Task<IActionResult> PostcodeAPI(string postcode)
-        {
-            using (var httpClient = new HttpClient())
-            {
-                var json = await httpClient.GetStringAsync("viacep.com.br/ws/" + postcode + "/json/");
-
-                // Now parse with JSON.Net
-
-                return View();
-            }
-
-            
-        }
 
         [HttpGet]
         public IActionResult Details(int id) 

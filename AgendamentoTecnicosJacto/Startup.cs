@@ -31,7 +31,21 @@ namespace AgendamentoTecnicosJacto
             services.AddDbContext<ApplicationDbContext>(options =>
                  options.UseMySql(Configuration.GetConnectionString("DefaultConnection"))
              );
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<IdentityUser>(options => {
+
+                //Default Password Settings
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = true;
+                options.Password.RequiredLength = 6;
+                options.Password.RequiredUniqueChars = 1;
+                //Default Lockout settings
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
+                options.Lockout.MaxFailedAccessAttempts = 5;
+                options.Lockout.AllowedForNewUsers = true;
+
+            })
                 .AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
             services.AddControllersWithViews();
             services.AddRazorPages();
@@ -40,7 +54,8 @@ namespace AgendamentoTecnicosJacto
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, 
+                                UserManager<IdentityUser> userManager)
         {
             if (env.IsDevelopment())
             {
@@ -60,6 +75,8 @@ namespace AgendamentoTecnicosJacto
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            DataSeedingInitializer.UserSeedAsync(userManager).Wait();
 
             app.UseEndpoints(endpoints =>
             {
