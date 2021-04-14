@@ -65,12 +65,12 @@ namespace AgendamentoTecnicosJacto.Controllers
         {
             if (model.StartDate >= model.ExpectedFinalDate)
             {
-                ModelState.AddModelError("StartDate", "A data de início deve ser posterior à data de término");
+                ModelState.AddModelError("StartDate", "A data de início deve ser anterior à data de término");
                 return View();
             }
             if (model.StartDate < DateTime.Today)
             {
-                ModelState.AddModelError("StartDate", "A data de início não pode ser anterior à data atual");
+                ModelState.AddModelError("StartDate", "A data de início deve ser posterior à data atual");
                 return View();
             }
             if (ModelState.IsValid)
@@ -131,12 +131,12 @@ namespace AgendamentoTecnicosJacto.Controllers
         {
             if (model.StartDate >= model.ExpectedFinalDate)
             {
-                ModelState.AddModelError("StartDate", "A data de início deve ser posterior à data de término");
+                ModelState.AddModelError("StartDate", "A data de início deve ser anterior à data de término");
                 return View();
             }
             if (model.StartDate < DateTime.Today)
             {
-                ModelState.AddModelError("StartDate", "A data de início não pode ser anterior à data atual");
+                ModelState.AddModelError("StartDate", "A data de início deve ser posterior à data atual");
                 return View();
             }
             if (ModelState.IsValid)
@@ -242,14 +242,14 @@ namespace AgendamentoTecnicosJacto.Controllers
         public async Task<IActionResult> Done(AppointmentDoneViewModel model)
         {
 
-            if (model.RealFinalDate <= model.ExpectedFinalDate)
+            if (model.RealFinalDate > model.ExpectedFinalDate)
             {
-                ModelState.AddModelError("RealFinalDate", "A data de real de término deve ser posterior à estimada");
+                ModelState.AddModelError("RealFinalDate", "A data de real de término deve ser anterior à estimada");
                 return View();
             }
-            if (model.RealFinalDate <= DateTime.Today)
+            if (model.RealFinalDate < model.StartDate)
             {
-                ModelState.AddModelError("RealFinalDate", "A data de real de término deve ser posterior à data atual");
+                ModelState.AddModelError("RealFinalDate", "A data de real de término deve ser posterior ou igual à data de início");
                 return View();
             }
             if (ModelState.IsValid)
