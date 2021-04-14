@@ -19,12 +19,12 @@ namespace AgendamentoTecnicosJacto.Models
         [Display(Name = "Observação")]
         public string Observations { get; set; } // Details about the visit
         [Required(ErrorMessage = "Campo obrigatório"),
-            DataType(DataType.Date), Display(Name = "Data de início")]
+            DataType(DataType.DateTime), Display(Name = "Data de início")]
         public DateTime StartDate { get; set; } = DateTime.UtcNow;
         [Required(ErrorMessage = "Campo obrigatório"),
-            DataType(DataType.Date), Display(Name = "Data de término estimada")]
+            DataType(DataType.DateTime), Display(Name = "Data de término estimada")]
         public DateTime ExpectedFinalDate { get; set; } = DateTime.UtcNow.AddDays(1);
-        [DataType(DataType.Date), Display(Name = "Data de término real")]
+        [DataType(DataType.DateTime), Display(Name = "Data de término real")]
         public DateTime RealFinalDate { get; set; }
         [Required(ErrorMessage = "Campo obrigatório"), RegularExpression(@"^[0-9]*$"),
             Display(Name = "Código Postal")]

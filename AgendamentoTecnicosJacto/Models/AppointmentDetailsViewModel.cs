@@ -17,11 +17,11 @@ namespace AgendamentoTecnicosJacto.Models
         public string AppointmentName { get; set; }
         [Display(Name = "Observação")]
         public string Observations { get; set; } // Details about the visit
-        [DataType(DataType.Date), Display(Name = "Data de início")]
+        [DataType(DataType.DateTime), Display(Name = "Data de início")]
         public DateTime StartDate { get; set; } = DateTime.UtcNow;
-        [DataType(DataType.Date), Display(Name = "Data de término estimada")]
+        [DataType(DataType.DateTime), Display(Name = "Data de término estimada")]
         public DateTime ExpectedFinalDate { get; set; } = DateTime.UtcNow.AddDays(1);
-        [DataType(DataType.Date), Display(Name = "Data de término real")]
+        [DataType(DataType.DateTime), Display(Name = "Data de término real")]
         public DateTime RealFinalDate { get; set; }
         [Display(Name = "Código Postal")]
         public string Postcode { get; set; }
