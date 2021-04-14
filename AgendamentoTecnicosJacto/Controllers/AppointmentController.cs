@@ -63,8 +63,14 @@ namespace AgendamentoTecnicosJacto.Controllers
         [ValidateAntiForgeryToken] //Prevents cross-site Request Forgery Attacks
         public async Task<IActionResult> Create(AppointmentCreateModelView model)
         {
-            if (model.StartDate > model.ExpectedFinalDate)
+            if (model.StartDate >= model.ExpectedFinalDate)
             {
+                ModelState.AddModelError("StartDate", "A data de início deve ser posterior à data de término");
+                return View();
+            }
+            if (model.StartDate < DateTime.Today)
+            {
+                ModelState.AddModelError("StartDate", "A data de início não pode ser anterior à data atual");
                 return View();
             }
             if (ModelState.IsValid)
@@ -123,8 +129,14 @@ namespace AgendamentoTecnicosJacto.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(AppointmentEditModelView model)
         {
-            if (model.StartDate > model.ExpectedFinalDate)
+            if (model.StartDate >= model.ExpectedFinalDate)
             {
+                ModelState.AddModelError("StartDate", "A data de início deve ser posterior à data de término");
+                return View();
+            }
+            if (model.StartDate < DateTime.Today)
+            {
+                ModelState.AddModelError("StartDate", "A data de início não pode ser anterior à data atual");
                 return View();
             }
             if (ModelState.IsValid)
@@ -178,7 +190,7 @@ namespace AgendamentoTecnicosJacto.Controllers
 
 
         [HttpGet]
-        public IActionResult Details(int id) 
+        public IActionResult Details(int id)
         {
             var appointment = _appointmentService.GetById(id);
             if (appointment == null)
@@ -201,10 +213,61 @@ namespace AgendamentoTecnicosJacto.Controllers
                 District = appointment.District,
                 Number = appointment.Number,
                 Postcode = appointment.Postcode,
-                State = appointment.State
+                State = appointment.State,
+                Completed = appointment.Completed
             };
 
             return View(model);
+        }
+
+        public IActionResult Done(int id)
+        {
+            var appointment = _appointmentService.GetById(id);
+            if (appointment == null)
+            {
+                return NotFound();
+            }
+            var model = new AppointmentDoneViewModel()
+            {
+                Id = appointment.Id,
+                AppointmentName = appointment.AppointmentName,
+                StartDate = appointment.StartDate,
+                ExpectedFinalDate = appointment.ExpectedFinalDate
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Done(AppointmentDoneViewModel model)
+        {
+
+            if (model.RealFinalDate <= model.ExpectedFinalDate)
+            {
+                ModelState.AddModelError("RealFinalDate", "A data de real de término deve ser posterior à estimada");
+                return View();
+            }
+            if (model.RealFinalDate <= DateTime.Today)
+            {
+                ModelState.AddModelError("RealFinalDate", "A data de real de término deve ser posterior à data atual");
+                return View();
+            }
+            if (ModelState.IsValid)
+            {
+                var appointment = _appointmentService.GetById(model.Id);
+                if (appointment == null)
+                {
+                    return NotFound();
+                }
+
+                appointment.Completed = true;
+                appointment.RealFinalDate = model.RealFinalDate;
+
+                await _appointmentService.UpdateAsync(appointment);
+                return RedirectToAction(nameof(Index));
+
+            }
+            return View();
         }
 
     }

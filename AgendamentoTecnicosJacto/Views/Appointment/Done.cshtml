@@ -1,0 +1,76 @@
+﻿@model AppointmentDoneViewModel
+
+@{ ViewBag.Title = "Concluir Agendamento";}
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li class="breadcrumb-item"><a asp-action="Index">Lista de Agendamentos</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Concluir Agendamento</li>
+                </ol>
+            </nav><br /><br />
+            <form method="post" enctype="multipart/form-data" asp-action="Done">
+                <div class="form-row text-center">
+
+                    <div style="display:flex" class="col-md-3 form-group">
+                        <div style="width:100%">
+                            <label asp-for="AppointmentName"></label>
+                            <input asp-for="AppointmentName" class="form-control" readonly style=" background-color: #E9ECEF" />
+                        </div>
+                    </div>
+
+
+                    <div style="display:flex" class="col-md-3 form-group">
+                        <div style="width:100%">
+                            <label asp-for="StartDate"></label>
+                            <input asp-for="StartDate" class="form-control" readonly style=" background-color: #E9ECEF" />
+                        </div>
+                    </div>
+
+                    <div style="display:flex" class="col-md-3 form-group">
+                        <div style="width:100%">
+                            <label asp-for="ExpectedFinalDate"></label>
+                            <input asp-for="ExpectedFinalDate" class="form-control" readonly style=" background-color: #E9ECEF" />
+                        </div>
+                    </div>
+
+                    </div>
+
+                    <div class="form-row text-center">
+
+                        <div style="display:flex" class="col-md-3 form-group">
+                            <div style="width:100%">
+                                <label asp-for="RealFinalDate"></label>
+                                <input asp-for="RealFinalDate" class="form-control" />
+                                <span asp-validation-for="RealFinalDate" class="text-danger"></span>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <br /><br />
+
+                          <div class="form-group">
+                              <button type="submit" class="btn btn-rounded btn-primary float-left">Concluir</button>
+
+                              <a asp-action="index" class="btn btn-rounded btn-success float-right">Voltar</a>
+                              <br />
+                              <br />
+                              <br />
+
+                          </div>
+</form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

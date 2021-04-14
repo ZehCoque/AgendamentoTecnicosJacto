@@ -2,10 +2,6 @@
 
 @{ ViewBag.Title = "Novo Agendamento";}
 
-@using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
-
 <script src="~/lib/jquery/dist/jquery.js"></script>
 
 <div class="col-md-12 grid-margin stretch-card">
@@ -186,8 +182,8 @@
 
                 <div class="form-group">
 
-                    <button type="submit" asp-route-id="@UserManager.GetUserId(User)" class="btn btn-rounded btn-primary float-left">Salvar</button>
-                    <a asp-action="index" asp-route-id="@UserManager.GetUserId(User)" class="btn btn-rounded btn-success float-right">Voltar</a>
+                    <button type="submit" class="btn btn-rounded btn-primary float-left">Salvar</button>
+                    <a asp-action="index" class="btn btn-rounded btn-success float-right">Voltar</a>
                     <br />
                     <br />
                     <br />

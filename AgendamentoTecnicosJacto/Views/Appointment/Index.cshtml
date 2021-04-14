@@ -1,9 +1,5 @@
 ﻿@model IEnumerable<AppointmentIndexModelView>
 
-@using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
-
 @{ ViewBag.Title = "Agendamentos";}
 
 <div>
@@ -18,7 +14,7 @@
                 </nav><br /><br />
                 <div class="row">
                     <div class="col-md-12 table-responsive-md">
-                        <a class="btn btn-xs btn-outline-success float-md-right" asp-action="Create" asp-route-id="@UserManager.GetUserId(User)">Novo Agendamento</a>
+                        <a class="btn btn-xs btn-outline-success float-md-right" asp-action="Create">Novo Agendamento</a>
                         <br /><br />
                         <table class="table table-striped text-center">
                             <thead>
@@ -36,24 +32,32 @@
                                         <td> <a class="text-primary" asp-action="Details" asp-route-id="@item.AppointmentId">@item.AppointmentName</a></td>
                                         <td>@item.StartDate.ToString("dd/MM/yyyy")</td>
                                         <td>@item.ExpectedFinalDate.ToString("dd/MM/yyyy")</td>
-                                        <td>
-                                            @if (item.Completed)
-                                            {
-                                                <p>Finalizado</p>
-                                            }
-                                            else
-                                            {
-                                                <p>Em andamento</p>
-                                            }
-                                        </td>
-                                        <td>
-                                            <a class="text-primary" asp-action="Edit" asp-route-id="@item.AppointmentId">
-                                                Editar
-                                            </a>
-                                            <a class="text-danger" asp-action="Delete" asp-route-id="@item.AppointmentId">
-                                                Deletar
-                                            </a>
-                                        </td>
+                                        @if (item.Completed)
+                                        {
+                                            <td>Finalizado</td>
+                                            <td>
+                                                <a class="text-primary" asp-action="Details" asp-route-id="@item.AppointmentId">
+                                                    Detalhes
+                                                </a>
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            <td>Em andamento</td>
+                                            <td>
+                                                <a class="text-primary" asp-action="Done" asp-route-id="@item.AppointmentId">
+                                                    Concluir
+                                                </a>
+                                                <a class="text-warning" asp-action="Edit" asp-route-id="@item.AppointmentId">
+                                                    Editar
+                                                </a>
+                                                <a class="text-danger" asp-action="Delete" asp-route-id="@item.AppointmentId">
+                                                    Deletar
+                                                </a>
+
+                                            </td>
+                                        }
+
                                     </tr>
                                 }
                             </tbody>

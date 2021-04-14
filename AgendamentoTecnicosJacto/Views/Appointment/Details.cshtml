@@ -11,7 +11,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
                     <li class="breadcrumb-item"><a asp-action="Index">Lista de Agendamentos</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Novo Agendamento</li>
+                    <li class="breadcrumb-item active" aria-current="page">Visualizar Agendamento</li>
                 </ol>
             </nav><br /><br />
             <form method="post" enctype="multipart/form-data" asp-action="Create">
@@ -30,7 +30,23 @@
                             <input asp-for="TechnicianName" class="form-control" readonly style=" background-color: #E9ECEF" />
                         </div>
                     </div>
-                </div>
+
+                        <div style="display:flex" class="col-md-3 form-group">
+                            <div style="width:100%">
+                                <label asp-for="Completed"></label>
+                                <span class="form-control" readonly style=" background-color: #E9ECEF">
+                                    @if (Model.Completed)
+                                    {
+                                        <span class="text-success font-weight-bold">Finalizado</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="font-weight-bold">Em andamento</span>
+                                    }
+                                </span>
+                            </div>
+                        </div>
+                    </div>
 
                 <div class="form-row text-center">
 
@@ -49,11 +65,19 @@
                         </div>
                     </div>
 
+
+                    <div style="display:flex" class="col-md-3 form-group">
+                        <div style="width:100%">
+                            <label asp-for="ExpectedFinalDate"></label>
+                            <input asp-for="ExpectedFinalDate" class="form-control" readonly style=" background-color: #E9ECEF" />
+                        </div>
+                    </div>
+
                     @if (!Model.Completed)
                     {
                         <div style="display:flex" class="col-md-3 form-group">
                             <div style="width:100%">
-                                <label asp-for="ExpectedFinalDate"></label>
+                                <label asp-for="RealFinalDate"></label>
                                 <input class="form-control" readonly style=" background-color: #E9ECEF" />
                             </div>
                         </div>
@@ -62,20 +86,12 @@
                     {
                         <div style="display:flex" class="col-md-3 form-group">
                             <div style="width:100%">
-                                <label asp-for="ExpectedFinalDate"></label>
-                                <input asp-for="ExpectedFinalDate" class="form-control" readonly style=" background-color: #E9ECEF" />
+                                <label asp-for="RealFinalDate"></label>
+                                <input asp-for="RealFinalDate" class="form-control" readonly style=" background-color: #E9ECEF" />
                             </div>
                         </div>
                     }
 
-
-
-                    <div style="display:flex" class="col-md-3 form-group">
-                        <div style="width:100%">
-                            <label asp-for="RealFinalDate"></label>
-                            <input asp-for="RealFinalDate" class="form-control" readonly style=" background-color: #E9ECEF" />
-                        </div>
-                    </div>
 
 
                 </div>
@@ -85,7 +101,7 @@
                     <div style="display:flex" class="col-md-2 form-group">
                         <div style="width:100%">
                             <label asp-for="Postcode"></label>
-                            <input id="postcodeForm" asp-for="Postcode" class="form-control" readonly style=" background-color: #E9ECEF"/>
+                            <input id="postcodeForm" asp-for="Postcode" class="form-control" readonly style=" background-color: #E9ECEF" />
                         </div>
                     </div>
 
@@ -100,7 +116,7 @@
                     <div style="display:flex" class="col-md-2 form-group">
                         <div style="width:100%">
                             <label asp-for="Number"></label>
-                            <input asp-for="Number" class="form-control" readonly style=" background-color: #E9ECEF"/>
+                            <input asp-for="Number" class="form-control" readonly style=" background-color: #E9ECEF" />
                         </div>
                     </div>
 
@@ -131,7 +147,7 @@
                     <div style="display:flex" class="col-md-12 form-group">
                         <div style="width:100%">
                             <label asp-for="Observations"></label>
-                            <input type="text" asp-for="Observations" class="form-control" readonly style=" background-color: #E9ECEF"/>
+                            <input type="text" asp-for="Observations" class="form-control" readonly style=" background-color: #E9ECEF" />
                         </div>
                     </div>
 
@@ -142,7 +158,7 @@
 
                 <div class="form-group">
 
-                    <a asp-action="index" asp-route-technicianId="1" class="btn btn-rounded btn-success float-right">Voltar</a>
+                    <a asp-action="index"  class="btn btn-rounded btn-success float-right">Voltar</a>
                     <br />
                     <br />
                     <br />
