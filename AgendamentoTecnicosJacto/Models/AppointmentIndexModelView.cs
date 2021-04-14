@@ -7,9 +7,10 @@ namespace AgendamentoTecnicosJacto.Models
 {
     public class AppointmentIndexModelView
     {
-        public int Id { get; set; }
+        public int AppointmentId { get; set; }
         public int TechnicianId { get; set; }
         public string TechnicianName { get; set; }
+        public string TechnicianEmail { get; set; }
         public string AppointmentName { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime ExpectedFinalDate { get; set; }

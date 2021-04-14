@@ -34,7 +34,7 @@ namespace Services
 
         public Appointment GetById(int appointmentId) => _context.Appointments.Where(a => a.Id == appointmentId).FirstOrDefault();
 
-        public Technician GetTechnician(int technicianId) => _context.Technicians.Where(t => t.Id == technicianId).FirstOrDefault();
+        public Technician GetTechnician(string name) => _context.Technicians.Where(t => t.Email == name).FirstOrDefault();
 
         public async Task UpdateAsync(Appointment newAppointment)
         {

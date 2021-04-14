@@ -9,10 +9,11 @@ namespace AgendamentoTecnicosJacto.Models
     public class AppointmentCreateModelView
     {
 
-
-        public int Id { get; set; }
+        public int AppointmentId { get; set; }
         [Display(Name = "Código de Registro")]
         public int TechnicianId { get; set; }
+        [Display(Name = "Email")]
+        public string TechnicianEmail { get; set; }
         [Display(Name = "Nome do Técnico")]
         public string TechnicianName { get; set; }
         [Required(ErrorMessage = "Campo obrigatório"), 

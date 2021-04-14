@@ -1,6 +1,7 @@
 ﻿using AgendamentoTecnicosJacto.Models;
 using Entity;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Services;
 using System;
@@ -21,11 +22,14 @@ namespace AgendamentoTecnicosJacto.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index(int technicianId)
+        public IActionResult Index()
         {
+
+            var technicianId = _appointmentService.GetTechnician(User.Identity.Name).TechnicianId;
+
             var appointments = _appointmentService.GetAppointments(technicianId).Select(appointment => new AppointmentIndexModelView
             {
-                Id = appointment.Id,
+                AppointmentId = appointment.Id,
                 TechnicianId = appointment.TechnicianId,
                 TechnicianName = appointment.TechnicianName,
                 AppointmentName = appointment.AppointmentName,
@@ -39,9 +43,9 @@ namespace AgendamentoTecnicosJacto.Controllers
         }
 
         [HttpGet]
-        public IActionResult Create(int technicianId)
+        public IActionResult Create()
         {
-            var technician = _appointmentService.GetTechnician(technicianId);
+            var technician = _appointmentService.GetTechnician(User.Identity.Name);
             if (technician == null)
             {
                 return NotFound();
@@ -49,7 +53,8 @@ namespace AgendamentoTecnicosJacto.Controllers
             var model = new AppointmentCreateModelView()
             {
                 TechnicianName = technician.Name,
-                TechnicianId = technician.TechnicianId
+                TechnicianId = technician.TechnicianId,
+                TechnicianEmail = technician.Email
             };
             return View(model);
         }
@@ -66,7 +71,7 @@ namespace AgendamentoTecnicosJacto.Controllers
             {
                 var appointment = new Appointment
                 {
-                    Id = model.Id,
+                    Id = model.AppointmentId,
                     TechnicianId = model.TechnicianId,
                     TechnicianName = model.TechnicianName,
                     Observations = model.Observations,
@@ -81,7 +86,7 @@ namespace AgendamentoTecnicosJacto.Controllers
                     State = model.State
                 };
                 await _appointmentService.CreateAsync(appointment);
-                return RedirectToAction(nameof(Index), new { technicianId = 1 });
+                return RedirectToAction(nameof(Index));
             }
             return View();
         }
@@ -142,7 +147,7 @@ namespace AgendamentoTecnicosJacto.Controllers
                 appointment.State = model.State;
 
                 await _appointmentService.UpdateAsync(appointment);
-                return RedirectToAction(nameof(Index), new { technicianId = 1 });
+                return RedirectToAction(nameof(Index));
             }
             return View();
         }
@@ -168,7 +173,7 @@ namespace AgendamentoTecnicosJacto.Controllers
         public async Task<IActionResult> Delete(AppointmentDeleteViewModel model)
         {
             await _appointmentService.Delete(model.Id);
-            return RedirectToAction(nameof(Index), new { technicianId = 1 });
+            return RedirectToAction(nameof(Index));
         }
 
 

@@ -9,10 +9,12 @@ namespace Entity
 {
     public class Technician
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         [Required]
         public int TechnicianId { get; set; }
         [Required, MaxLength(30)]
         public string Name { get; set; }
+        public string Email { get; set; }
+
     }
 }

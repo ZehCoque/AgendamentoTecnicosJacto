@@ -35,8 +35,8 @@ namespace Persistence
             {
                 IdentityUser user = new IdentityUser
                 {
-                    UserName = "adilson@gmail.com",
-                    Email = "adilson@gmail.com"
+                    UserName = "adilson@example.com",
+                    Email = "adilson@example.com"
                 };
                 _ = userManager.CreateAsync(user, "p@ssw0rD").Result;
 
