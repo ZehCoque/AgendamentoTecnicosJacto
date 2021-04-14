@@ -22,43 +22,46 @@
                                     <th>Agendamento</th>
                                     <th>Data de ínicio</th>
                                     <th>Data de término estimada</th>
+                                    <th>Data de término real</th>
                                     <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach (var item in Model)
                                 {
-                                    <tr>
-                                        <td> <a class="text-primary" asp-action="Details" asp-route-id="@item.AppointmentId">@item.AppointmentName</a></td>
-                                        <td>@item.StartDate.ToString("dd/MM/yyyy")</td>
+                                <tr>
+                                    <td> <a class="text-primary" asp-action="Details" asp-route-id="@item.AppointmentId">@item.AppointmentName</a></td>
+                                    <td>@item.StartDate.ToString("dd/MM/yyyy")</td>
+                                    <td>@item.ExpectedFinalDate.ToString("dd/MM/yyyy")</td>
+                                    @if (item.Completed)
+                                    {
                                         <td>@item.ExpectedFinalDate.ToString("dd/MM/yyyy")</td>
-                                        @if (item.Completed)
-                                        {
-                                            <td>Finalizado</td>
-                                            <td>
-                                                <a class="text-primary" asp-action="Details" asp-route-id="@item.AppointmentId">
-                                                    Detalhes
-                                                </a>
-                                            </td>
-                                        }
-                                        else
-                                        {
-                                            <td>Em andamento</td>
-                                            <td>
-                                                <a class="text-primary" asp-action="Done" asp-route-id="@item.AppointmentId">
-                                                    Concluir
-                                                </a>
-                                                <a class="text-warning" asp-action="Edit" asp-route-id="@item.AppointmentId">
-                                                    Editar
-                                                </a>
-                                                <a class="text-danger" asp-action="Delete" asp-route-id="@item.AppointmentId">
-                                                    Deletar
-                                                </a>
+                                        <td>Finalizado</td>
+                                        <td>
+                                            <a class="text-primary" asp-action="Details" asp-route-id="@item.AppointmentId">
+                                                Detalhes
+                                            </a>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td>-</td>
+                                        <td>Em andamento</td>
+                                        <td>
+                                            <a class="text-primary" asp-action="Done" asp-route-id="@item.AppointmentId">
+                                                Concluir
+                                            </a>
+                                            <a class="text-warning" asp-action="Edit" asp-route-id="@item.AppointmentId">
+                                                Editar
+                                            </a>
+                                            <a class="text-danger" asp-action="Delete" asp-route-id="@item.AppointmentId">
+                                                Deletar
+                                            </a>
 
-                                            </td>
-                                        }
+                                        </td>
+                                    }
 
-                                    </tr>
+                                </tr>
                                 }
                             </tbody>
                         </table><br />
